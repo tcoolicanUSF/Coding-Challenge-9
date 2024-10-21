@@ -101,3 +101,27 @@ class VIPPatron extends Patron{
         }
     }
 }
+
+//Task 6: Create and Manage Sections and Patrons
+const Fantasy = new Section ("Fantasy")
+const Sports = new Section ("Sports")
+
+const book1 = new Book ("The Lord of the Rings", "John Ronald Reuel Tolkien", "0007270607")
+const book2 = new Book ("Harry Potter and the Sorcerer's Stone", "J. K. Rowling", "1338878921")
+const book3 = new Book ("The Climber", "Shin-ichi Sakamoto", "8861239749")
+
+Fantasy.addBook(book1)
+Fantasy.addBook(book2)
+Sports.addBook(book3)
+
+const regularPatron = new Patron ("Liam Lawson")
+const vipPatron = new VIPPatron ("Yuki Tsunoda")
+
+regularPatron.borrowBook(book1)
+vipPatron.borrowBook(book1)
+regularPatron.returnBook(book1)
+
+Fantasy.listBooks()
+
+console.log(`Total available books in Fantasy: ${Fantasy.getAvailableBooks()}`)
+console.log(`Total available books in Sports: ${Sports.getAvailableBooks()}`)
