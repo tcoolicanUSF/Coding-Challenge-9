@@ -81,3 +81,23 @@ class Patron {
         }
     }
 }
+
+//Task 4: Create a VIPPatron Class that Inherits from Patron
+class VIPPatron extends Patron{
+    constructor (name, borrowedBooks = [], priority = true) {
+        super (name, borrowedBooks)
+        this.priority = priority
+    }
+
+    borrowBook(book) {
+        const alreadyBorrowed = this.borrowedBooks.some(b => b === book)
+
+        if (book.isAvailable || alreadyBorrowed && this.priority) { 
+            super.borrowBook(book) 
+            book.isAvailable = false
+            return `Book has been successfully checked out. If already checked out,previous owner will be notified you have priority` 
+        } else {
+           return "Book is not currently available" //Message to show book that VIP patron tried to check out is not available
+        }
+    }
+}
