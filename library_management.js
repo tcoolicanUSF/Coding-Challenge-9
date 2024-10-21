@@ -44,3 +44,12 @@ class Section {
         }
     ));
     }}
+
+    // Task 5: Handle Books Borrowing and Returning
+    calculateTotalBooksAvailable(); {
+        return this.books.reduce((TotalAvailableBooks, books) => {
+                return `Number of available books: ${TotalAvailableBooks + (books.isAvailable ? 1 : 0)}`
+            }
+        )
+    }
+    
