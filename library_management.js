@@ -21,3 +21,26 @@ class Book { //Define a Class
     }
 };
 
+//Task 2: Create a Section Class
+class Section {
+    constructor (name, books = []) {
+        this.name = name
+        this.books = books
+    }
+
+    addBook (book) {
+        this.books.push(book)
+    }
+
+    getAvailableBooks () { //Available book count
+        let availableBooks = this.books.filter(book => book.isAvailable === true)
+        return availableBooks.length
+    }
+
+    listBooks() {
+        return this.books.map (book => ({
+        title: book.title,
+        available: book.isAvailable
+        }
+    ));
+    }}
